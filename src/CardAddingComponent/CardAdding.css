@@ -1,0 +1,10 @@
+.inputborderapp{
+    border-color: rgba(0, 47, 52, 1);
+    border-radius: 4px;
+    color: rgba(0, 47, 52, 1);
+}
+@media (max-width:500px) {
+    .banner{
+        display: none;
+    }
+}

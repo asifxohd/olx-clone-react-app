@@ -1,0 +1,28 @@
+.inputborder{
+    border-color: rgba(0, 47, 52, 1);
+    border-radius: 4px;
+}
+.backgoundgreen{
+    background-color: rgba(0, 47, 52, 1);
+    border-radius: 4px;
+}
+.inputborder input {
+    border: none;
+}
+  
+.inputborder input:focus {
+    outline: none;
+}
+.sell-button{
+    border:7px solid;
+    border-top-color:rgb(6, 237, 210);
+    border-bottom-color:rgb(42, 133, 245) ;
+    border-left-color: rgb(254, 186, 78);
+    border-right-color: rgb(254, 186, 78);
+    border-radius: 40px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.greenycolor{
+    color: rgba(0, 47, 52, 1);
+}
