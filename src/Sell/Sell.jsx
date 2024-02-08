@@ -33,37 +33,45 @@ function Sell() {
 	const navigate = useNavigate()
 
 	const handleSellButtonClick = async () => {
-		// part of image uploading to the firebase storage
-		const storageRef = ref(storage, `/images/${image.name}`);
-		await uploadBytes(storageRef, image);
-		const downloadURL = await getDownloadURL(storageRef);
-		console.log('Image uploaded. Download URL:', downloadURL);
 
-		
-		// const productCollectionRef = collection(db, "products");
-		const newUUID = generateUUID();
+		if (nameChange.trim() !== '' && category !== '' && price.trim() > 0 && location.trim() !== '') {
+			// part of image uploading to the firebase storage
+			const storageRef = ref(storage, `/images/${image.name}`);
+			await uploadBytes(storageRef, image);
+			const downloadURL = await getDownloadURL(storageRef);
+			console.log('Image uploaded. Download URL:', downloadURL);
 
-		const date = new Date();
-		let day = date.getDate();
-		let month = date.getMonth() + 1;  
-		let year = date.getFullYear();
-		let currentDate = `${day}-${month}-${year}`;
+			
+			// const productCollectionRef = collection(db, "products");
+			const newUUID = generateUUID();
 
-		const product = {
-			id:newUUID,
-			name: nameChange,
-			price: Number(price),
-			location: location,
-			brand: category,
-			date: currentDate,
-			userid: main.uid,
-			url: downloadURL
-		};
+			const date = new Date();
+			let day = date.getDate();
+			let month = date.getMonth() + 1;  
+			let year = date.getFullYear();
+			let currentDate = `${day}-${month}-${year}`;
 
-        const refer=doc(db,'products',newUUID)
-		await setDoc(refer, product)
-		navigate("/");
+			const product = {
+				id:newUUID,
+				name: nameChange,
+				price: Number(price),
+				location: location,
+				brand: category,
+				date: currentDate,
+				userid: main.uid,
+				url: downloadURL
+			};
 
+			const refer=doc(db,'products',newUUID)
+			await setDoc(refer, product)
+			navigate("/");
+		}else{
+
+		}
+		setNameChange('')
+		setCategory('')
+		setLocation('')
+		setPrice('')
 	}
 
 

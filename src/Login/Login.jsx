@@ -24,8 +24,8 @@ function Login() {
     const handleLogin = () => {
         signInWithEmailAndPassword(auth,email,password).then(()=>{
             alert("Login success")
-            set(email)
             navigate('/')
+            set(email)
         }).catch(err => {err.message})
 
     }
